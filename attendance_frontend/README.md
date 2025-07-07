@@ -9,6 +9,12 @@ This project provides a minimal React template with a clean, modern UI and minim
 - **Fast**: Minimal dependencies for quick loading times
 - **Simple**: Easy to understand and modify
 
+## Main Features (Attendance Frontend)
+
+- **User Registration and Login**: Secure authentication, JWT token handling, and stateful session management.
+- **Dashboard**: Perform attendance check-in/check-out, view status and simple messages.
+- **API Integration**: Uses backend FastAPI endpoints for all actions.
+
 ## Getting Started
 
 In the project directory, you can run:
