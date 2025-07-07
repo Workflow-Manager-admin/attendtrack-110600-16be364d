@@ -19,6 +19,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        {/* Theme toggle for light/dark mode */}
         <button 
           className="theme-toggle" 
           onClick={toggleTheme}
@@ -26,13 +27,28 @@ function App() {
         >
           {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
         </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
+        <img src={logo} className="App-logo" alt="AttendTrack logo" />
+        <div className="title">AttendTrack</div>
+        <div className="subtitle">Effortless Attendance Management</div>
+        <div className="desc">
+          Welcome to <strong>AttendTrack</strong> – your modern solution to track, manage, and report user or employee attendance.<br />
+          Experience a sleek, professional interface designed for productivity and clarity.
+        </div>
+        <div className="card">
+          <div>
+            <span role="img" aria-label="features">🗒️</span> <b>Features</b>
+            <ul style={{margin: '12px 0 10px 19px', fontSize: '1.1em', color: 'var(--text-light)'}}>
+              <li>User login &amp; registration</li>
+              <li>Attendance check-in / check-out</li>
+              <li>Attendance history and reports</li>
+              <li>Dashboard attendance summary</li>
+              <li>Modern responsive design</li>
+            </ul>
+          </div>
+        </div>
+        <div className="info" style={{ marginTop: 20 }}>
+          <span>Current theme: <strong>{theme.charAt(0).toUpperCase() + theme.slice(1)}</strong></span>
+        </div>
         <a
           className="App-link"
           href="https://reactjs.org"

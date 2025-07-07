@@ -1,104 +1,236 @@
-/* CSS Variables for Theme Management */
+/* === Modern Professional Theme Management for Attendance Frontend === */
 :root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
-  --button-text: #ffffff;
+  --primary: #1976D2;
+  --secondary: #424242;
+  --accent: #43A047;
+  --bg-light: #f4f6fb;
+  --bg-dark: #181f2a;
+  --surface: #fff;
+  --surface-alt: #f8f9fa;
+  --text-strong: #222b45;
+  --text-normal: #444b59;
+  --text-light: #7e869b;
+  --border-color: #e3e7ee;
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
+  --outline: 0 0 0 2px var(--primary);
+  --transition: all 0.2s cubic-bezier(0.4,0.0,0.2,1);
+  --shadow: 0 2px 16px 0 rgba(25, 118, 210, 0.08);
+  --font: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
 }
 
 [data-theme="dark"] {
-  /* Dark theme colors */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #282c34;
-  --text-primary: #ffffff;
-  --text-secondary: #61dafb;
-  --border-color: #404040;
-  --button-bg: #0056b3;
-  --button-text: #ffffff;
+  --primary: #1976D2;
+  --secondary: #282828;
+  --accent: #43A047;
+  --bg-light: #181f2a;
+  --bg-dark: #121212;
+  --surface: #222b45;
+  --surface-alt: #20263a;
+  --text-strong: #fafbfc;
+  --text-normal: #d5dbec;
+  --text-light: #7e869b;
+  --border-color: #272b34;
+  --shadow: 0 2px 16px 0 rgba(25, 118, 210, 0.10);
 }
 
+/* === Base & Typography === */
+body,
 .App {
-  text-align: center;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  font-family: var(--font);
+  background: var(--bg-light);
+  color: var(--text-normal);
+  transition: var(--transition);
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* Header / Branding Section */
 .App-header {
-  background-color: var(--bg-secondary);
+  background: var(--surface);
   min-height: 100vh;
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease;
   position: relative;
+  padding: 48px 24px 24px 24px;
+  border-radius: var(--radius-lg);
+}
+
+.App-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 32px;
+  margin-top: -20px;
+  animation: App-logo-spin 16s linear infinite;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 12px rgba(25, 118, 210, 0.05));
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 2.4rem;
+  color: var(--primary);
+  font-weight: 900;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: var(--text-light);
+  margin-bottom: 18px;
+  font-weight: 500;
 }
 
 .App-link {
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.08rem;
+  transition: color .18s cubic-bezier(.4,0,.2,1);
+  margin-top: 18px;
+  border-bottom: 2px solid transparent;
+}
+.App-link:hover,
+.App-link:focus {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  transition: color .19s cubic-bezier(.4,0,.2,1), border .14s linear;
+  outline: none;
 }
 
+/* === Button / Theme Toggle === */
 .theme-toggle {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
+  top: 34px;
+  right: 32px;
+  background: var(--primary);
+  color: #fff;
+  outline: none;
   border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 14px;
+  border-radius: var(--radius-md);
+  padding: 10px 23px;
+  font-size: 1.07rem;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 6px rgba(25,118,210,0.10);
+  transition: var(--transition);
+  z-index: 20;
 }
-
+.theme-toggle:focus {
+  outline: var(--outline);
+}
 .theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  opacity: 0.9;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(67,160,71,0.13);
+  transform: scale(1.03);
 }
 
-.theme-toggle:active {
-  transform: translateY(0);
+/* === Card Container/ Professional Section Layouts === */
+.container,
+.card {
+  background: var(--surface-alt);
+  border: 1px solid var(--border-color);
+  padding: 30px 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  max-width: 450px;
+  margin: 24px auto;
+  text-align: left;
+  transition: var(--transition);
 }
 
+.card {
+  margin: 28px auto 12px auto;
+}
+
+/* === Utility & Info Elements === */
+.desc,
+.info {
+  color: var(--text-light);
+  font-size: 1.09rem;
+  line-height: 1.7;
+  margin: 18px 0 8px 0;
+}
+
+code {
+  font-family: 'Fira Mono', 'Menlo', 'Monaco', monospace;
+  color: var(--accent);
+  background-color: #f3f5f8;
+  border-radius: var(--radius-sm);
+  padding: 2.5px 5px;
+  font-size: 1rem;
+  margin: 0 2px;
+}
+
+/* Typography tweaks for main content */
+p,
+strong,
+span {
+  font-size: 1.12rem;
+  color: var(--text-normal);
+  letter-spacing: 0.03em;
+}
+strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Animations & Misc */
 @keyframes App-logo-spin {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
 
-/* Responsive design for mobile */
+/* === Responsive / Mobile Adjustments === */
 @media (max-width: 768px) {
+  .App-header {
+    min-height: 100vh;
+    padding: 24px 6px 16px 6px;
+    border-radius: 0;
+  }
+
   .theme-toggle {
-    top: 10px;
-    right: 10px;
-    padding: 8px 16px;
-    font-size: 12px;
+    top: 12px;
+    right: 8px;
+    padding: 7px 13px;
+    font-size: 0.95rem;
+  }
+
+  .container,
+  .card {
+    max-width: 99vw;
+    padding: 17px 6.5vw;
+    box-shadow: 0 1px 8px rgba(25, 118, 210, 0.13);
+  }
+
+  .App-logo {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 18px;
+    margin-top: 0;
+  }
+
+  .title {
+    font-size: 1.39rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .App-link {
+    font-size: 1.01rem;
   }
 }
