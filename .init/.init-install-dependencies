@@ -1,0 +1,4 @@
+{
+    "command": "npm install",
+    "working_directory": "/home/kavia/workspace/code-generation/attendtrack-110600-16be364d/attendance_frontend"
+}
